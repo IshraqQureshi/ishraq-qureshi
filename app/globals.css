@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+:root {
+  --background: #05060a;
+  --surface: #0d0f16;
+  --surface-elevated: #12141f;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  --foreground: #f4f5f8;
+  --foreground-muted: #9aa1b2;
+  --foreground-faint: #81889c;
+
+  --accent: #3b5bff;
+  --accent-hover: #5470ff;
+  --accent-muted: rgba(59, 91, 255, 0.12);
+  --accent-border: rgba(59, 91, 255, 0.35);
+
+  --radius-md: 0.625rem;
+  --radius-lg: 1rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-faint: var(--foreground-faint);
+
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-muted: var(--accent-muted);
+  --color-accent-border: var(--accent-border);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+::selection {
+  background: var(--accent-muted);
+  color: var(--foreground);
+}
+
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--accent-hover);
+  outline-offset: 2px;
+  border-radius: var(--radius-md);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.glow-accent {
+  background: radial-gradient(
+    circle at 50% 0%,
+    var(--accent-muted) 0%,
+    transparent 60%
+  );
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out both;
+}
+
+.animate-dash-flow {
+  stroke-dasharray: 4 4;
+  stroke-dashoffset: 40;
+  animation: dash-flow 3.5s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-dash-flow {
+    animation: none;
+  }
+}
