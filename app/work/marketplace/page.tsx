@@ -11,26 +11,62 @@ import { StageFlow } from "@/components/case-study/StageFlow";
 import { TechnologyGrid } from "@/components/case-study/TechnologyGrid";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { marketplace as project } from "@/content/case-studies/marketplace";
+import { siteConfig } from "@/content/site";
+
+const seoTitle = "Multi-Vendor Marketplace — Microservices Architecture | Ishraq Qureshi";
+const seoDescription =
+  "How I architected a 12-service microservices marketplace with API Gateway routing and Stripe recurring payments — built with Next.js, NestJS, MySQL, and deployed on AWS.";
+const canonicalPath = "/work/marketplace";
 
 export const metadata: Metadata = {
-  title: project.title,
-  description: project.description,
+  title: { absolute: seoTitle },
+  description: seoDescription,
+  alternates: {
+    canonical: canonicalPath,
+  },
   openGraph: {
-    title: `${project.title} — ${project.tagline}`,
-    description: project.description,
+    title: seoTitle,
+    description: seoDescription,
+    url: `${siteConfig.url}${canonicalPath}`,
+    siteName: siteConfig.name,
+    locale: "en_US",
     type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${project.title} — ${project.tagline}`,
-    description: project.description,
+    title: seoTitle,
+    description: seoDescription,
   },
+};
+
+const caseStudySchema = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  name: project.title,
+  description: seoDescription,
+  url: `${siteConfig.url}${canonicalPath}`,
+  author: { "@type": "Person", name: siteConfig.name, url: siteConfig.url },
+  about: project.tagline,
+  keywords: project.stack.join(", "),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+    { "@type": "ListItem", position: 2, name: "Work", item: `${siteConfig.url}/#work` },
+    { "@type": "ListItem", position: 3, name: project.title, item: `${siteConfig.url}${canonicalPath}` },
+  ],
 };
 
 export default function MarketplacePage() {
   return (
     <main className="flex-1">
+      <JsonLd data={caseStudySchema} />
+      <JsonLd data={breadcrumbSchema} />
       <CaseStudyHero project={project} />
 
       <section className="py-24 md:py-32">

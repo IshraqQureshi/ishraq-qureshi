@@ -11,7 +11,7 @@ const stages = [
   {
     number: "02",
     title: "Make the Right Technical Decisions",
-    lead: "Choose the right architecture, AI approach, integrations, and infrastructure before expensive mistakes happen.",
+    lead: "Choose the right SaaS architecture, AI approach, integrations, and infrastructure before expensive mistakes happen.",
     concepts: ["Architecture", "AI strategy", "Technology choices", "Scalability"],
   },
   {

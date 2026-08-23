@@ -11,26 +11,62 @@ import { PaymentFlow } from "@/components/case-study/PaymentFlow";
 import { TechnologyGrid } from "@/components/case-study/TechnologyGrid";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { lms as project } from "@/content/case-studies/lms";
+import { siteConfig } from "@/content/site";
+
+const seoTitle = "LMS Platform — Modular Monolith SaaS Case Study | Ishraq Qureshi";
+const seoDescription =
+  "A full-stack LMS platform built with React, NestJS, and MySQL — JWT auth, Stripe payments, Firebase communication, deployed to Azure via Docker and Jenkins CI/CD.";
+const canonicalPath = "/work/lms";
 
 export const metadata: Metadata = {
-  title: project.title,
-  description: project.description,
+  title: { absolute: seoTitle },
+  description: seoDescription,
+  alternates: {
+    canonical: canonicalPath,
+  },
   openGraph: {
-    title: `${project.title} — ${project.tagline}`,
-    description: project.description,
+    title: seoTitle,
+    description: seoDescription,
+    url: `${siteConfig.url}${canonicalPath}`,
+    siteName: siteConfig.name,
+    locale: "en_US",
     type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${project.title} — ${project.tagline}`,
-    description: project.description,
+    title: seoTitle,
+    description: seoDescription,
   },
+};
+
+const caseStudySchema = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  name: project.title,
+  description: seoDescription,
+  url: `${siteConfig.url}${canonicalPath}`,
+  author: { "@type": "Person", name: siteConfig.name, url: siteConfig.url },
+  about: project.tagline,
+  keywords: project.stack.join(", "),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+    { "@type": "ListItem", position: 2, name: "Work", item: `${siteConfig.url}/#work` },
+    { "@type": "ListItem", position: 3, name: project.title, item: `${siteConfig.url}${canonicalPath}` },
+  ],
 };
 
 export default function LmsPage() {
   return (
     <main className="flex-1">
+      <JsonLd data={caseStudySchema} />
+      <JsonLd data={breadcrumbSchema} />
       <CaseStudyHero project={project} />
 
       <section className="py-24 md:py-32">

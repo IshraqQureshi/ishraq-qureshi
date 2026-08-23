@@ -2,8 +2,9 @@ export const siteConfig = {
   name: "Ishraq Qureshi",
   role: "AI Product Engineer & SaaS Architect",
   tagline: "AI is the accelerator, not the architect.",
-  // TODO: replace with the production domain before launch (used for canonical/OG URLs).
-  url: "https://ishraqqureshi.com",
+  // Live production domain. Apex (ishraqqureshi.com) 308-redirects here — keep
+  // canonical/OG/sitemap URLs pointed at the actual serving host to avoid a redirect hop.
+  url: "https://www.ishraqqureshi.com",
   description:
     "I help founders, businesses, and agencies turn ambitious ideas into scalable AI-powered products — from technical validation and architecture to MVP and launch.",
   // Every "Book a Discovery Call" CTA reads from this single value via BookCallButton.
