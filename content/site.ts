@@ -6,24 +6,21 @@ export const siteConfig = {
   url: "https://ishraqqureshi.com",
   description:
     "I help founders, businesses, and agencies turn ambitious ideas into scalable AI-powered products — from technical validation and architecture to MVP and launch.",
-  // TODO: replace with the real Calendly link once the account is finalized.
   // Every "Book a Discovery Call" CTA reads from this single value via BookCallButton.
-  calendlyUrl: "https://calendly.com/ishraq-qureshi/discovery-call",
+  calendlyUrl: "https://calendly.com/ishraqqureshi/ai-product-discovery-call",
   // TODO: replace with the real public contact email for the site.
   email: "hello@ishraqqureshi.com",
 };
 
 export const socialLinks = {
-  // TODO: replace with the real LinkedIn profile URL.
-  linkedin: "#",
-  // TODO: replace with the real GitHub profile URL.
-  github: "#",
+  linkedin: "https://www.linkedin.com/in/ishraq-qureshi",
+  github: "https://github.com/ishraq-qureshi",
 };
 
 export const navLinks = [
-  { label: "Services", href: "/services" },
-  { label: "Work", href: "/work" },
-  { label: "About", href: "/about" },
+  { label: "Services", href: "/#services" },
+  { label: "Work", href: "/#work" },
+  { label: "About", href: "/#about" },
 ];
 
 export const cta = {

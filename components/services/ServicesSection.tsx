@@ -8,7 +8,7 @@ const journey = ["VALIDATE", "ARCHITECT", "BUILD", "SCALE"];
 
 export function ServicesSection() {
   return (
-    <section className="py-24 md:py-32">
+    <section id="services" className="py-24 md:py-32">
       <Container className="flex flex-col gap-14">
         <SectionHeading
           eyebrow="How I Can Help"

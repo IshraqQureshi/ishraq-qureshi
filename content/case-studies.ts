@@ -26,15 +26,15 @@ export const featuredCaseStudy: CaseStudy = {
 export const supportingCaseStudies: CaseStudy[] = [
   {
     title: "Multi-Vendor Marketplace",
-    proof: "30+ Modules",
-    tags: ["Microservices", "Stripe Connect", "RabbitMQ"],
+    proof: "12 Microservices",
+    tags: ["Microservices", "Stripe", "Recurring Payments"],
     description:
-      "Built a two-sided marketplace with microservices architecture, payment splitting, API gateway routing, and event-driven communication.",
+      "Built a two-sided marketplace with a 12-service microservices architecture, API gateway routing, Stripe payments, and recurring billing.",
     cta: "View Case Study",
     href: "/work/marketplace",
   },
   {
-    title: "GCSE Learning Platform",
+    title: "LMS Platform",
     tags: ["LMS", "React", "NestJS", "Firebase", "Azure"],
     description:
       "Led the development of a modern learning platform supporting students, educators, content, and scalable cloud infrastructure.",

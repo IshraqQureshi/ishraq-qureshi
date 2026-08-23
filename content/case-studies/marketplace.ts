@@ -10,7 +10,7 @@ export const marketplace = {
   proofMetrics: [
     { value: "12", label: "Microservices" },
     { value: "5", label: "Team Members" },
-    { value: "3 Months", label: "Project Duration" },
+    { value: "4 Months", label: "Project Duration" },
   ],
   teamMetric: { value: "Stripe", label: "Payments & Recurring Billing" },
 
@@ -20,7 +20,7 @@ export const marketplace = {
     { label: "Project", value: "Multi-Vendor Marketplace" },
     { label: "Role", value: "Lead Developer & SME" },
     { label: "Team", value: "5 members" },
-    { label: "Duration", value: "3 months" },
+    { label: "Duration", value: "4 months" },
     { label: "Architecture", value: "12 microservices" },
     { label: "Frontend", value: "Next.js" },
     { label: "Backend", value: "NestJS" },
@@ -193,11 +193,11 @@ export const marketplace = {
   outcome: {
     headline: "Engineering Quality Doesn't Always Control Business Outcomes.",
     description:
-      "The business ultimately did not succeed commercially. The project nevertheless demonstrates the engineering work required to design and build a complex multi-vendor platform within a three-month delivery window.",
+      "The business ultimately did not succeed commercially. The project nevertheless demonstrates the engineering work required to design and build a complex multi-vendor platform within a four-month delivery window.",
     metrics: [
       { value: "12", label: "Microservices" },
       { value: "5-Person", label: "Team" },
-      { value: "3-Month", label: "Delivery" },
+      { value: "4-Month", label: "Delivery" },
       { value: "Stripe", label: "Payments" },
     ],
   },
@@ -207,7 +207,7 @@ export const marketplace = {
     metrics: [
       { value: "12", label: "Microservices" },
       { value: "5", label: "Team Members" },
-      { value: "3 Months", label: "Project Duration" },
+      { value: "4 Months", label: "Project Duration" },
       { value: "Stripe", label: "Checkout + Webhooks + Recurring Payments" },
     ],
     stack: "Next.js · NestJS · MySQL · Stripe · AWS",

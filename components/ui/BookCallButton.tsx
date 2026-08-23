@@ -18,6 +18,7 @@ export function BookCallButton({
 }: BookCallButtonProps) {
   const [open, setOpen] = useState(false);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!open) return;
@@ -26,6 +27,8 @@ export function BookCallButton({
       if (event.key === "Escape") setOpen(false);
     };
 
+    const trigger = triggerRef.current;
+
     document.addEventListener("keydown", onKeyDown);
     document.body.style.overflow = "hidden";
     closeButtonRef.current?.focus();
@@ -33,12 +36,14 @@ export function BookCallButton({
     return () => {
       document.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = "";
+      trigger?.focus();
     };
   }, [open]);
 
   return (
     <>
       <button
+        ref={triggerRef}
         type="button"
         className={buttonClasses(variant, className)}
         onClick={(event) => {

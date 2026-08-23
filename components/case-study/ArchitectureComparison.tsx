@@ -38,7 +38,7 @@ export function ArchitectureComparison({ left, right, quote }: ArchitectureCompa
         </div>
       </div>
 
-      <p className="border-l-2 border-accent-border pl-6 text-xl font-medium leading-snug text-foreground md:text-2xl">
+      <p className="max-w-3xl border-l-2 border-accent-border pl-6 text-xl font-medium leading-snug text-foreground md:text-2xl">
         {quote}
       </p>
     </div>

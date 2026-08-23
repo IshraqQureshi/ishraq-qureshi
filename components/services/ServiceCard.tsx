@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/Button";
+import { BookCallButton } from "@/components/ui/BookCallButton";
 import type { Service } from "@/content/services";
 
 const emphasisStyles: Record<Service["emphasis"], string> = {
@@ -32,9 +32,9 @@ export function ServiceCard({ service }: { service: Service }) {
         {service.description}
       </p>
 
-      <Button href={service.href} variant="secondary" className="w-full text-sm">
+      <BookCallButton variant="secondary" className="w-full text-sm">
         {service.cta}
-      </Button>
+      </BookCallButton>
     </div>
   );
 }

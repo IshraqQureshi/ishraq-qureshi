@@ -6,7 +6,7 @@ type Step = {
 
 export function RagPipeline({ steps }: { steps: Step[] }) {
   return (
-    <ol className="flex flex-col rounded-2xl border border-border-subtle bg-surface/40 p-7 md:p-9">
+    <ol className="flex max-w-2xl flex-col rounded-2xl border border-border-subtle bg-surface/40 p-7 md:p-9">
       {steps.map((step, index) => (
         <li key={step.number} className="flex gap-5">
           <div className="flex flex-col items-center">

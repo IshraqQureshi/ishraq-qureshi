@@ -19,8 +19,8 @@ export const services: Service[] = [
     price: "Starting at $99",
     description:
       "Validate the product idea, technical feasibility, AI opportunities, risks, and next steps before committing to development.",
-    cta: "Explore Audit",
-    href: "/services#audit",
+    cta: "Explore AI Product Audit",
+    href: "/#services",
     emphasis: "standard",
   },
   {
@@ -30,8 +30,8 @@ export const services: Service[] = [
     price: "Starting at $299",
     description:
       "Turn a validated idea into a detailed product, architecture, AI, and development roadmap.",
-    cta: "Explore Blueprint",
-    href: "/services#blueprint",
+    cta: "Explore the Blueprint",
+    href: "/#services",
     emphasis: "standard",
   },
   {
@@ -42,7 +42,7 @@ export const services: Service[] = [
     description:
       "Build and launch the first production-ready version of your product with an AI-native engineering workflow.",
     cta: "Discuss Your MVP",
-    href: "/services#mvp-sprint",
+    href: "/#services",
     emphasis: "transformation",
   },
   {
@@ -53,7 +53,7 @@ export const services: Service[] = [
     description:
       "Get ongoing technical leadership, architecture, engineering, and product development as your business grows.",
     cta: "Discuss Partnership",
-    href: "/services#engineering-partner",
+    href: "/#services",
     emphasis: "premium",
   },
 ];
