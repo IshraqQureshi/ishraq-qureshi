@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 
 const credentials = [
@@ -41,16 +42,13 @@ export function AboutSection() {
 
         <div>
           <div className="relative aspect-4/5 w-full max-w-sm overflow-hidden rounded-2xl border border-border-subtle bg-linear-to-br from-surface to-surface-elevated lg:mx-auto">
-            {/*
-              TODO: replace with the real photo — drop the file at
-              /public/ishraq/profile.jpg and swap this div for:
-              <Image src="/ishraq/profile.jpg" alt="Ishraq Qureshi" fill className="object-cover" />
-            */}
-            <div className="flex h-full w-full items-center justify-center">
-              <span className="text-6xl font-semibold tracking-tight text-foreground-faint">
-                IQ
-              </span>
-            </div>
+            <Image
+              src="/ishraq/profile.jpg"
+              alt="Ishraq Qureshi"
+              fill
+              sizes="(min-width: 1024px) 384px, 100vw"
+              className="object-cover"
+            />
           </div>
         </div>
       </Container>
