@@ -12,18 +12,21 @@ export const automobileMarketplace = {
   eyebrow: "CASE STUDY",
   heading: "A Two-Sided Marketplace, Live in Production in 6 Days",
   body: "A client needed Haraka Gari, an automobile marketplace connecting buyers with vetted showrooms, live fast without cutting corners on security. I built it end-to-end: customer, showroom and admin roles, vehicle search, financing applications, test-drive booking, and admin moderation.",
+  // Every value here is kept to 14 characters or fewer on purpose — MetricGrid
+  // switches to a smaller, non-mono style past that length, which otherwise
+  // makes one tile visually mismatch the other three.
   stats: MVP_CONFIG.harakaDataIsReal
     ? [
         { value: "6 days", label: "Kickoff to production" },
         { value: "3 user roles", label: "Customers, showrooms, admins" },
         { value: "30+ showrooms", label: "Onboarded on the platform" },
-        { value: "2 security bugs", label: "Caught in review before launch" },
+        { value: "2 bugs caught", label: "Found in review before launch" },
       ]
     : [
         { value: "6 days", label: "Kickoff to production" },
         { value: "3 user roles", label: "Customers, showrooms, admins" },
         { value: "8 core modules", label: "Shipped and tested" },
-        { value: "2 security bugs", label: "Caught in review before launch" },
+        { value: "2 bugs caught", label: "Found in review before launch" },
       ],
   note: `Six days came from a tightly defined scope and a disciplined AI-assisted workflow. Most client MVPs take ${MVP_CONFIG.typicalTimeline}, depending on scope and integrations.`,
   caseStudyHref: "/work/haraka-gari",

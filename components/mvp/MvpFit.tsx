@@ -4,7 +4,7 @@ import { mvpFitCheck } from "@/content/mvp";
 
 export function MvpFit() {
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-16 md:py-24">
       <Container className="flex flex-col gap-14">
         <SectionHeading title={mvpFitCheck.heading} />
 

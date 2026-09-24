@@ -5,7 +5,7 @@ import { mvpAbout } from "@/content/mvp";
 
 export function MvpAbout() {
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-16 md:py-24">
       <Container className="grid gap-14 lg:grid-cols-[3fr_2fr] lg:items-center lg:gap-20">
         <div className="flex flex-col gap-6">
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-accent-hover">About</span>

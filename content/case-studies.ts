@@ -29,7 +29,7 @@ export const supportingCaseStudies: CaseStudy[] = [
     proof: "12 Microservices",
     tags: ["Microservices", "Stripe", "Recurring Payments"],
     description:
-      "Built a two-sided marketplace with a 12-service microservices architecture, API gateway routing, Stripe payments, and recurring billing.",
+      "Built a two-sided marketplace where multiple vendors manage their own storefronts, with Stripe checkout, recurring billing, and the day-to-day commerce operations the business runs on.",
     cta: "View Case Study",
     href: "/work/marketplace",
   },

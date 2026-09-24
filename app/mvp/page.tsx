@@ -7,6 +7,7 @@ import { PixelConsentProvider } from "@/components/analytics/PixelConsentProvide
 import { MvpAbout } from "@/components/mvp/MvpAbout";
 import { MvpAiObjection } from "@/components/mvp/MvpAiObjection";
 import { MvpCaseStudy } from "@/components/mvp/MvpCaseStudy";
+import { MvpCaseStudyCta } from "@/components/mvp/MvpCaseStudyCta";
 import { EngagedViewTracker } from "@/components/mvp/EngagedViewTracker";
 import { MvpFaq } from "@/components/mvp/MvpFaq";
 import { MvpFinalCta } from "@/components/mvp/MvpFinalCta";
@@ -84,6 +85,7 @@ export default async function MvpPage() {
         <MvpAiObjection />
         <MvpCaseStudy />
         <EngagedViewTracker />
+        <MvpCaseStudyCta />
         <MvpHowItWorks />
         <MvpWhatYouGet />
         <MvpAbout />

@@ -7,15 +7,17 @@ import { mvpHero } from "@/content/mvp";
 
 export function MvpHero() {
   return (
-    <section id="mvp-hero" className="glow-accent relative overflow-hidden pb-16 pt-14 md:pb-20 md:pt-20">
+    <section id="mvp-hero" className="glow-accent relative overflow-hidden pb-11 pt-10 md:pb-16 md:pt-16">
       <Container className="grid gap-12 lg:grid-cols-[3fr_2fr] lg:items-start lg:gap-16">
-        <div className="flex flex-col items-start gap-7">
+        <div className="flex flex-col items-start gap-5 md:gap-7">
           <div className="animate-fade-up">
             <Badge>{mvpHero.eyebrow}</Badge>
           </div>
 
-          <h1 className="animate-fade-up text-balance max-w-2xl text-[2.25rem] font-semibold leading-[1.15] tracking-tight text-foreground [animation-delay:80ms] md:text-[3.25rem] lg:text-[3.75rem]">
-            {mvpHero.headline}
+          <h1 className="animate-fade-up text-balance max-w-2xl text-[1.75rem] font-semibold leading-[1.15] tracking-tight text-foreground [animation-delay:80ms] md:text-[3.25rem] lg:text-[3.75rem]">
+            {/* Shorter on mobile so the price pills + CTA fit above the fold on a 375×667 viewport; both render server-side, so there's no hydration mismatch. */}
+            <span className="sm:hidden">{mvpHero.headlineShort}</span>
+            <span className="hidden sm:inline">{mvpHero.headline}</span>
           </h1>
 
           <p className="animate-fade-up max-w-2xl text-lg leading-relaxed text-foreground-muted [animation-delay:160ms] md:text-xl">
@@ -56,7 +58,7 @@ export function MvpHero() {
               priority
             />
           </div>
-          <p className="text-xs text-foreground-faint">{mvpHero.photoCaption}</p>
+          <p className="text-sm text-foreground-faint">{mvpHero.photoCaption}</p>
         </div>
       </Container>
     </section>

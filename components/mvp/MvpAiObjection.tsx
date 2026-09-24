@@ -3,7 +3,7 @@ import { mvpAiObjection } from "@/content/mvp";
 
 export function MvpAiObjection() {
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-16 md:py-24">
       <Container className="flex flex-col gap-10">
         <div className="flex flex-col gap-5">
           <h2 className="text-balance max-w-3xl text-[2.1rem] font-semibold leading-[1.15] tracking-tight text-foreground md:text-[2.75rem]">
@@ -15,7 +15,7 @@ export function MvpAiObjection() {
 
         <div className="grid gap-6 md:grid-cols-2">
           <div className="flex flex-col gap-4 rounded-2xl border border-border-subtle bg-surface/40 p-7">
-            <p className="text-xs font-semibold tracking-widest text-foreground-faint">
+            <p className="text-sm font-semibold tracking-widest text-foreground-faint">
               {mvpAiObjection.comparison.aiAlone.label.toUpperCase()}
             </p>
             <ul className="flex flex-col gap-2.5">
@@ -28,7 +28,7 @@ export function MvpAiObjection() {
           </div>
 
           <div className="flex flex-col gap-4 rounded-2xl border border-accent-border bg-accent-muted/30 p-7">
-            <p className="text-xs font-semibold tracking-widest text-accent-hover">
+            <p className="text-sm font-semibold tracking-widest text-accent-hover">
               {mvpAiObjection.comparison.aiAccelerated.label.toUpperCase()}
             </p>
             <ul className="flex flex-col gap-2.5">

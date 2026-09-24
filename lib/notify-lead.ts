@@ -41,6 +41,18 @@ function formatFieldsAsHtml(input: MvpApplyInput, result: QualifyLeadResult): st
  */
 export async function notifyLead(input: MvpApplyInput, result: QualifyLeadResult): Promise<void> {
   const apiKey = process.env.RESEND_API_KEY;
+  const webhookUrl = process.env.LEAD_WEBHOOK_URL;
+  const isProduction =
+    process.env.VERCEL_ENV === "production" || (!process.env.VERCEL_ENV && process.env.NODE_ENV === "production");
+
+  if (isProduction && !apiKey && !webhookUrl) {
+    // Neither delivery path is configured — this submission is about to be
+    // computed and thrown away with no record anywhere. Loud on purpose.
+    console.error(
+      `LEAD NOT DELIVERED — no RESEND_API_KEY or LEAD_WEBHOOK_URL configured in production. ` +
+        `Lead from ${input.email} (${input.fullName}) was not emailed or forwarded anywhere.`
+    );
+  }
 
   if (!apiKey) {
     console.warn("[notify-lead] RESEND_API_KEY not set — skipping email notification.");
@@ -59,7 +71,6 @@ export async function notifyLead(input: MvpApplyInput, result: QualifyLeadResult
     }
   }
 
-  const webhookUrl = process.env.LEAD_WEBHOOK_URL;
   if (webhookUrl) {
     try {
       await fetch(webhookUrl, {

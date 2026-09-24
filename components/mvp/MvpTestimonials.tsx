@@ -8,7 +8,7 @@ export function MvpTestimonials() {
   if (MVP_CONFIG.testimonials.length === 0) return null;
 
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-16 md:py-24">
       <Container className="flex flex-col gap-14">
         <SectionHeading title="What Clients Say" />
         <div className="grid gap-6 md:grid-cols-3">

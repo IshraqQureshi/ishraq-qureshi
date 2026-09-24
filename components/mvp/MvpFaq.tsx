@@ -4,7 +4,7 @@ import { mvpFaq } from "@/content/mvp";
 
 export function MvpFaq() {
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-16 md:py-24">
       <Container className="flex flex-col gap-14">
         <SectionHeading eyebrow="Questions" title="Frequently Asked Questions" />
 

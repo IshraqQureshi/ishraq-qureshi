@@ -9,7 +9,7 @@ const otherCaseStudies = [featuredCaseStudy, ...supportingCaseStudies];
 
 export function MvpCaseStudy() {
   return (
-    <section className="border-y border-border-subtle bg-surface/30 py-24 md:py-32">
+    <section className="border-y border-border-subtle bg-surface/30 py-16 md:py-24">
       <Container className="flex flex-col gap-14">
         <SectionHeading
           eyebrow={automobileMarketplace.eyebrow}

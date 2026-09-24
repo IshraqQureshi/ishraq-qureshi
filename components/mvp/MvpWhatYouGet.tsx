@@ -4,7 +4,7 @@ import { mvpWhatYouGet } from "@/content/mvp";
 
 export function MvpWhatYouGet() {
   return (
-    <section className="border-y border-border-subtle bg-surface/30 py-24 md:py-32">
+    <section className="border-y border-border-subtle bg-surface/30 py-16 md:py-24">
       <Container className="flex flex-col gap-14">
         <SectionHeading title={mvpWhatYouGet.heading} />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

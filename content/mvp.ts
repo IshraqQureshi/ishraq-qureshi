@@ -5,6 +5,9 @@ export { primaryCtaLabel, ctaMicrocopy };
 export const mvpHero = {
   eyebrow: "FOR FOUNDERS WITH A VALIDATED SAAS OR AI IDEA",
   headline: "Turn Your Validated SaaS or AI Idea Into a Working MVP — Without Hiring a Full-Time Engineering Team",
+  // Mobile-only variant so the price pills + CTA fit above the fold on a
+  // 375×667 viewport — see components/mvp/MvpHero.tsx.
+  headlineShort: "Turn Your Validated SaaS or AI Idea Into a Working MVP",
   sub: `I'm Ishraq, a senior full-stack and AI product engineer with 9+ years building SaaS platforms and marketplaces. I scope, architect and build your MVP end-to-end, so you get a product real users can log into, not a demo.`,
   facts: [
     `Typical MVP: ${MVP_CONFIG.priceMin}–${MVP_CONFIG.priceMax}`,
