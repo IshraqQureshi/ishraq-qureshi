@@ -2,10 +2,42 @@ export const mvpHero = {
   eyebrow: "AI Product Engineering for Founders",
   headline: "Turn Your Validated SaaS or AI Idea Into a Working MVP — Without Hiring a Full-Time Engineering Team",
   subheadline:
-    "You bring the validated idea. I handle the technical path from product clarification and architecture to a working MVP you can put in front of real users.",
+    "Bring your validated product idea. In 15 minutes, we'll identify what your MVP actually needs, what can wait, and what the technical path could look like.",
+  supportingLine: "No obligation. Just a focused conversation about your product.",
   primaryCta: "Get a Free 15-Minute MVP Assessment",
   secondaryCta: "See How It Works",
   trustLine: "9+ Years Building SaaS and Business Software · AI Product Engineering · Full-Stack Architecture",
+};
+
+export const mvpValidated = {
+  label: "What Counts as Validated?",
+  intro: "You don't need a finished product. Your idea may be validated if you've:",
+  signals: [
+    "Spoken with potential customers",
+    "Identified a real business problem",
+    "Received meaningful interest or signups",
+    "Have existing customers asking for the solution",
+    "Have an existing business process you know needs a better software solution",
+    "Have another credible signal that people actually need what you're building",
+  ],
+  note: "If you're still at the \"I have an idea\" stage, that's okay too — but the first step may be product validation rather than development.",
+};
+
+export const mvpCallAgenda = {
+  label: "Get a Free 15-Minute MVP Assessment",
+  intro: "During the call, we'll discuss:",
+  items: [
+    "What you're building",
+    "Who it's for",
+    "What you've already validated",
+    "What the MVP actually needs",
+    "What can be left for later",
+    "The likely technical path forward",
+  ],
+};
+
+export const mvpPreCta = {
+  message: "Before you spend months hiring developers or building the wrong features, let's figure out what your MVP actually needs.",
 };
 
 export const mvpProblem = {
@@ -43,13 +75,13 @@ export const mvpOffer = {
       number: "02",
       title: "Architecture",
       summary:
-        "Design the technical foundation before development begins — system architecture, database design, API architecture, AI architecture where relevant, and an infrastructure and deployment strategy.",
+        "A technical foundation designed around your actual product requirements — without overbuilding the MVP.",
     },
     {
       number: "03",
       title: "MVP Development",
       summary:
-        "Build the actual product — from frontend and backend to authentication, payments, integrations, AI features, and admin systems. The outcome matters more than the tech stack.",
+        "Build the actual product — a working MVP your users can log into and use, with the underlying capabilities (authentication, payments, integrations, AI features) built to support the product, not to impress.",
     },
     {
       number: "04",
@@ -65,14 +97,22 @@ export const mvpDifferentiation = {
   intro:
     "A development team can build whatever is written in the requirements. The harder part is deciding what should actually be built.",
   typical: {
-    label: "Typical Developer",
-    quote: "Give me the requirements and I'll build them.",
+    label: "A Typical Development Engagement",
+    quote: "You provide requirements. Developers implement them.",
   },
   partner: {
-    label: "Technical Product Partner",
-    quote: "Let's make sure we're building the right thing before we build it.",
+    label: "This Engagement",
+    quote: "We clarify what should actually be built, make the technical decisions, and then build it.",
   },
-  areas: ["Product decisions", "Technical architecture", "Scope decisions", "Trade-offs", "Development", "Launch"],
+  coreMessage: "The goal isn't to build more software. It's to build the right MVP.",
+  areas: [
+    "Know what to build",
+    "Avoid wasted spend on unnecessary features",
+    "Skip hiring and managing an engineering team",
+    "One experienced technical partner",
+    "A working product real users can use",
+    "A foundation that can evolve after the MVP",
+  ],
 };
 
 export const mvpExperience = {
@@ -113,22 +153,22 @@ export const mvpFit = {
   good: {
     label: "Good Fit",
     items: [
-      "You have a validated SaaS or AI idea",
-      "You have spoken with potential customers",
-      "You know the problem you're solving",
+      "You have a SaaS or AI product idea",
+      "You've identified a real problem",
+      "You've already spoken to potential users/customers, or have another meaningful validation signal",
       "You need technical execution",
-      "You want to move quickly",
-      "You want one experienced technical partner instead of assembling a large team",
+      "You don't want to build and manage a full engineering team",
+      "You're ready to invest in turning the idea into a real product",
     ],
   },
   notFit: {
     label: "Probably Not a Fit If...",
     items: [
-      "You only have a vague idea and haven't validated the problem",
-      "You're looking for the cheapest possible developer",
-      "You only need a simple brochure website",
-      "You want unlimited features without a defined scope",
-      "You aren't ready to invest in building the product",
+      "You only have a vague idea with no validation",
+      "You're looking for the cheapest developer available",
+      "You only need a simple marketing website",
+      "You expect unlimited features without a defined scope",
+      "You're not currently ready to invest in development",
     ],
   },
 };

@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import { services } from "@/content/services";
 import { supportingCaseStudies, featuredCaseStudy } from "@/content/case-studies";
@@ -7,9 +10,18 @@ import { siteConfig, socialLinks } from "@/content/site";
 const workLinks = [featuredCaseStudy, ...supportingCaseStudies];
 
 export function Footer() {
+  const pathname = usePathname();
+  // On the /mvp landing page, don't surface links that pull paid-traffic
+  // visitors back into the rest of the site funnel.
+  const isLandingPage = pathname?.startsWith("/mvp") ?? false;
+
   return (
     <footer className="border-t border-border-subtle">
-      <Container className="grid gap-10 py-16 md:grid-cols-[2fr_1fr_1fr_1fr]">
+      <Container
+        className={`grid gap-10 py-16 ${
+          isLandingPage ? "md:grid-cols-[2fr_1fr]" : "md:grid-cols-[2fr_1fr_1fr_1fr]"
+        }`}
+      >
         <div className="flex flex-col gap-1">
           <span className="text-base font-semibold tracking-tight text-foreground">
             {siteConfig.name}
@@ -17,39 +29,43 @@ export function Footer() {
           <span className="text-sm text-foreground-muted">{siteConfig.role}</span>
         </div>
 
-        <nav aria-label="Services">
-          <p className="mb-3 text-xs font-semibold tracking-widest text-foreground-faint">
-            SERVICES
-          </p>
-          <ul className="flex flex-col gap-2">
-            {services.map((service) => (
-              <li key={service.href}>
-                <Link
-                  href={service.href}
-                  className="text-sm text-foreground-muted transition-colors hover:text-foreground"
-                >
-                  {service.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        {isLandingPage ? null : (
+          <nav aria-label="Services">
+            <p className="mb-3 text-xs font-semibold tracking-widest text-foreground-faint">
+              SERVICES
+            </p>
+            <ul className="flex flex-col gap-2">
+              {services.map((service) => (
+                <li key={service.href}>
+                  <Link
+                    href={service.href}
+                    className="text-sm text-foreground-muted transition-colors hover:text-foreground"
+                  >
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
 
-        <nav aria-label="Work">
-          <p className="mb-3 text-xs font-semibold tracking-widest text-foreground-faint">WORK</p>
-          <ul className="flex flex-col gap-2">
-            {workLinks.map((project) => (
-              <li key={project.href}>
-                <Link
-                  href={project.href}
-                  className="text-sm text-foreground-muted transition-colors hover:text-foreground"
-                >
-                  {project.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        {isLandingPage ? null : (
+          <nav aria-label="Work">
+            <p className="mb-3 text-xs font-semibold tracking-widest text-foreground-faint">WORK</p>
+            <ul className="flex flex-col gap-2">
+              {workLinks.map((project) => (
+                <li key={project.href}>
+                  <Link
+                    href={project.href}
+                    className="text-sm text-foreground-muted transition-colors hover:text-foreground"
+                  >
+                    {project.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
 
         <nav aria-label="Connect">
           <p className="mb-3 text-xs font-semibold tracking-widest text-foreground-faint">

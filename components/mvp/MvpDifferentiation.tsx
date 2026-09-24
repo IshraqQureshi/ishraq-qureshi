@@ -32,6 +32,10 @@ export function MvpDifferentiation() {
           </div>
         </div>
 
+        <p className="text-balance max-w-2xl text-2xl font-semibold leading-snug text-foreground md:text-3xl">
+          {mvpDifferentiation.coreMessage}
+        </p>
+
         <ul className="flex flex-wrap gap-3">
           {mvpDifferentiation.areas.map((area) => (
             <li

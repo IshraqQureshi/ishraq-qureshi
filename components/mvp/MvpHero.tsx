@@ -20,6 +20,10 @@ export function MvpHero() {
           {mvpHero.subheadline}
         </p>
 
+        <p className="animate-fade-up text-base text-foreground-faint [animation-delay:200ms]">
+          {mvpHero.supportingLine}
+        </p>
+
         <div className="animate-fade-up flex flex-col gap-3 sm:flex-row [animation-delay:240ms]">
           <TrackedBookCallButton location="hero" variant="primary" className="px-7 py-3.5 text-base">
             {mvpHero.primaryCta}

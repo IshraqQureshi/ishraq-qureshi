@@ -15,11 +15,18 @@ export function MvpProof() {
           description={automobileMarketplace.description}
         />
 
-        <p className="text-balance max-w-2xl text-2xl font-semibold text-foreground md:text-3xl">
-          {automobileMarketplace.statement}
-        </p>
+        <div className="flex flex-col items-center gap-2">
+          <p className="text-xs font-semibold uppercase tracking-widest text-accent-hover">
+            {automobileMarketplace.label}
+          </p>
+          <p className="text-balance max-w-2xl text-2xl font-semibold text-foreground md:text-3xl">
+            {automobileMarketplace.statement}
+          </p>
+        </div>
 
         <MetricGrid metrics={automobileMarketplace.metrics.secondary} primary={automobileMarketplace.metrics.primary} />
+
+        <p className="max-w-xl text-sm text-foreground-faint">{automobileMarketplace.disclaimer}</p>
 
         <TrackedLinkButton href={automobileMarketplace.caseStudyHref} location="proof_section" variant="secondary">
           View the Full Case Study

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { MvpAiSection } from "@/components/mvp/MvpAiSection";
 import { MvpCallSteps } from "@/components/mvp/MvpCallSteps";
+import { MvpClarity } from "@/components/mvp/MvpClarity";
 import { MvpDifferentiation } from "@/components/mvp/MvpDifferentiation";
 import { MvpExperience } from "@/components/mvp/MvpExperience";
 import { MvpFaq } from "@/components/mvp/MvpFaq";
@@ -9,6 +10,7 @@ import { MvpFinalCta } from "@/components/mvp/MvpFinalCta";
 import { MvpFit } from "@/components/mvp/MvpFit";
 import { MvpHero } from "@/components/mvp/MvpHero";
 import { MvpOffer } from "@/components/mvp/MvpOffer";
+import { MvpPreCta } from "@/components/mvp/MvpPreCta";
 import { MvpProblem } from "@/components/mvp/MvpProblem";
 import { MvpProof } from "@/components/mvp/MvpProof";
 import { mvpFaq } from "@/content/mvp";
@@ -66,8 +68,10 @@ export default function MvpPage() {
       <JsonLd data={serviceSchema} />
       <JsonLd data={faqSchema} />
       <MvpHero />
+      <MvpClarity />
       <MvpProblem />
       <MvpOffer />
+      <MvpPreCta />
       <MvpDifferentiation />
       <MvpProof />
       <MvpExperience />
