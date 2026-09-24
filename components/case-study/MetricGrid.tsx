@@ -33,7 +33,13 @@ export function MetricGrid({ metrics, primary, compact }: MetricGridProps) {
           </span>
           <span className="text-base text-foreground-muted">{primary.label}</span>
         </div>
-        <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+        <div
+          className={
+            metrics.length >= 4
+              ? "grid grid-cols-2 gap-6 md:grid-cols-4"
+              : "flex flex-wrap items-start justify-center gap-x-10 gap-y-6"
+          }
+        >
           {metrics.map((metric) => (
             <div key={metric.label} className="flex flex-col items-center gap-1 text-center">
               <span
