@@ -40,6 +40,7 @@ export async function POST(request: NextRequest) {
     fbc: input.fbc,
     clientIp,
     userAgent: request.headers.get("user-agent") ?? undefined,
+    contentName: "mvp_scoping_call",
   });
 
   return NextResponse.json({ ok: true });

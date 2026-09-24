@@ -83,6 +83,7 @@ export function QualificationModal({ isOpen, onClose }: { isOpen: boolean; onClo
   const [step, setStep] = useState(0);
   const [form, setForm] = useState<FormState>(EMPTY_FORM);
   const [result, setResult] = useState<ResultState>({ status: "form" });
+  const submitLockRef = useRef(false);
 
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -148,6 +149,15 @@ export function QualificationModal({ isOpen, onClose }: { isOpen: boolean; onClo
   }, [step, form]);
 
   async function handleSubmit() {
+    // Synchronous lock, checked/set before any state update or await:
+    // setResult()'s "submitting" status doesn't disable the button until
+    // React actually re-renders, leaving a window for a double-click or a
+    // touch device's duplicate tap/click pair to invoke this twice — which
+    // was firing two Lead events with the same eventId. React state can't
+    // close that window (it's async/batched); a ref can.
+    if (submitLockRef.current) return;
+    submitLockRef.current = true;
+
     if (form.company) {
       // Honeypot tripped — pretend to succeed, do nothing further.
       setResult({ status: "unqualified", reasons: ["just-exploring"] });
@@ -194,6 +204,7 @@ export function QualificationModal({ isOpen, onClose }: { isOpen: boolean; onClo
       });
 
       if (!response.ok) {
+        submitLockRef.current = false; // let the user retry
         setResult({ status: "error", message: "Something went wrong submitting the form. Please try again." });
         return;
       }
@@ -202,7 +213,9 @@ export function QualificationModal({ isOpen, onClose }: { isOpen: boolean; onClo
 
       if (data.qualified) {
         track("mvp_apply_qualified");
-        trackPixelEvent("Lead", eventId, { content_name: "mvp_qualified" });
+        // Empty params, matching Schedule's pattern — content_name lives in
+        // the server-side CAPI custom_data instead (app/api/mvp-apply/route.ts).
+        trackPixelEvent("Lead", eventId);
         setResult({ status: "qualified" });
       } else {
         track("mvp_apply_unqualified", { reasons: data.reasons.join(",") });
@@ -210,6 +223,7 @@ export function QualificationModal({ isOpen, onClose }: { isOpen: boolean; onClo
         setResult({ status: "unqualified", reasons: data.reasons });
       }
     } catch {
+      submitLockRef.current = false; // let the user retry
       setResult({ status: "error", message: "Something went wrong submitting the form. Please check your connection and try again." });
     }
   }

@@ -21,7 +21,10 @@ export function MetaPixel() {
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '${MVP_CONFIG.metaPixelId}');
-        fbq('track', 'PageView', {}, { eventID: (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : ('pv_' + Date.now()) });
+        if (!window.__mvpPageViewFired) {
+          window.__mvpPageViewFired = true;
+          fbq('track', 'PageView', {}, { eventID: (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : ('pv_' + Date.now()) });
+        }
       `}
     </Script>
   );

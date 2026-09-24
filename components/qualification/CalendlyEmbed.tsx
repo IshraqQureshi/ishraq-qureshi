@@ -49,6 +49,11 @@ function loadCalendlyScript(): Promise<void> {
 
 export function CalendlyEmbed({ name, email, whatBuilding, summaryLine, onScheduled }: CalendlyEmbedProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  // Guards against Schedule firing more than once per booking — the message
+  // listener gets torn down and re-attached whenever `onScheduled` (a new
+  // function reference from the parent on every render) changes, and this
+  // ref makes that harmless even if more than one listener is briefly live.
+  const scheduledRef = useRef(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -87,9 +92,13 @@ export function CalendlyEmbed({ name, email, whatBuilding, summaryLine, onSchedu
     const handleMessage = async (event: MessageEvent) => {
       if (event.origin.indexOf("calendly.com") === -1) return;
       if (event.data?.event !== "calendly.event_scheduled") return;
+      if (scheduledRef.current) return;
+      scheduledRef.current = true;
 
       const eventId = generateEventId();
-      trackPixelEvent("Schedule", eventId, { content_name: "mvp_scoping_call" });
+      // Empty params, matching Lead's pattern exactly — content_name lives
+      // in the server-side CAPI custom_data instead (app/api/mvp-schedule).
+      trackPixelEvent("Schedule", eventId);
 
       try {
         await fetch("/api/mvp-schedule", {
