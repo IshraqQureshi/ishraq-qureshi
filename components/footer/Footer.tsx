@@ -80,14 +80,16 @@ export function Footer() {
                 LinkedIn
               </a>
             </li>
-            <li>
-              <a
-                href={socialLinks.github}
-                className="text-sm text-foreground-muted transition-colors hover:text-foreground"
-              >
-                GitHub
-              </a>
-            </li>
+            {isLandingPage ? null : (
+              <li>
+                <a
+                  href={socialLinks.github}
+                  className="text-sm text-foreground-muted transition-colors hover:text-foreground"
+                >
+                  GitHub
+                </a>
+              </li>
+            )}
             <li>
               <a
                 href={`mailto:${siteConfig.email}`}
@@ -96,6 +98,16 @@ export function Footer() {
                 Email
               </a>
             </li>
+            {isLandingPage ? (
+              <li>
+                <Link
+                  href="/privacy"
+                  className="text-sm text-foreground-muted transition-colors hover:text-foreground"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+            ) : null}
           </ul>
         </nav>
       </Container>

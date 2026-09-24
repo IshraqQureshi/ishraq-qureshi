@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/work/marketplace",
     "/work/lms",
     "/work/haraka-gari",
+    "/privacy",
   ];
 
   return routes.map((route) => ({

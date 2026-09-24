@@ -1,24 +1,29 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { MvpAiSection } from "@/components/mvp/MvpAiSection";
-import { MvpCallSteps } from "@/components/mvp/MvpCallSteps";
-import { MvpClarity } from "@/components/mvp/MvpClarity";
-import { MvpDifferentiation } from "@/components/mvp/MvpDifferentiation";
-import { MvpExperience } from "@/components/mvp/MvpExperience";
+import { ConsentBanner } from "@/components/analytics/ConsentBanner";
+import { MetaPixel } from "@/components/analytics/MetaPixel";
+import { PixelConsentProvider } from "@/components/analytics/PixelConsentProvider";
+import { MvpAbout } from "@/components/mvp/MvpAbout";
+import { MvpAiObjection } from "@/components/mvp/MvpAiObjection";
+import { MvpCaseStudy } from "@/components/mvp/MvpCaseStudy";
+import { EngagedViewTracker } from "@/components/mvp/EngagedViewTracker";
 import { MvpFaq } from "@/components/mvp/MvpFaq";
 import { MvpFinalCta } from "@/components/mvp/MvpFinalCta";
 import { MvpFit } from "@/components/mvp/MvpFit";
 import { MvpHero } from "@/components/mvp/MvpHero";
-import { MvpOffer } from "@/components/mvp/MvpOffer";
-import { MvpPreCta } from "@/components/mvp/MvpPreCta";
+import { MvpHowItWorks } from "@/components/mvp/MvpHowItWorks";
 import { MvpProblem } from "@/components/mvp/MvpProblem";
-import { MvpProof } from "@/components/mvp/MvpProof";
+import { MvpStickyBar } from "@/components/mvp/MvpStickyBar";
+import { MvpTestimonials } from "@/components/mvp/MvpTestimonials";
+import { MvpWhatYouGet } from "@/components/mvp/MvpWhatYouGet";
+import { isConsentRequiredCountry } from "@/lib/geo";
 import { mvpFaq } from "@/content/mvp";
+import { MVP_CONFIG } from "@/content/mvp-config";
 import { siteConfig } from "@/content/site";
 
 const seoTitle = "Build Your SaaS or AI MVP | Ishraq Qureshi";
-const seoDescription =
-  "Turn your validated SaaS or AI idea into a working MVP without hiring a full-time engineering team. Get a free 15-minute MVP assessment.";
+const seoDescription = `Senior engineer who scopes, architects and builds SaaS & AI MVPs end-to-end. Typical MVP: ${MVP_CONFIG.priceMin}–${MVP_CONFIG.priceMax}, ${MVP_CONFIG.typicalTimeline}. Apply for a free 15-minute scoping call.`;
 const canonicalPath = "/mvp";
 
 export const metadata: Metadata = {
@@ -62,24 +67,31 @@ const faqSchema = {
   })),
 };
 
-export default function MvpPage() {
+export default async function MvpPage() {
+  const headersList = await headers();
+  const needsConsent = isConsentRequiredCountry(headersList.get("x-vercel-ip-country"));
+
   return (
-    <main className="flex-1">
-      <JsonLd data={serviceSchema} />
-      <JsonLd data={faqSchema} />
-      <MvpHero />
-      <MvpClarity />
-      <MvpProblem />
-      <MvpOffer />
-      <MvpPreCta />
-      <MvpDifferentiation />
-      <MvpProof />
-      <MvpExperience />
-      <MvpAiSection />
-      <MvpFit />
-      <MvpCallSteps />
-      <MvpFaq />
-      <MvpFinalCta />
-    </main>
+    <PixelConsentProvider needsConsent={needsConsent}>
+      <main className="flex-1">
+        <JsonLd data={serviceSchema} />
+        <JsonLd data={faqSchema} />
+        <MetaPixel />
+        <MvpHero />
+        <MvpTestimonials />
+        <MvpFit />
+        <MvpProblem />
+        <MvpAiObjection />
+        <MvpCaseStudy />
+        <EngagedViewTracker />
+        <MvpHowItWorks />
+        <MvpWhatYouGet />
+        <MvpAbout />
+        <MvpFaq />
+        <MvpFinalCta />
+        <MvpStickyBar />
+        <ConsentBanner />
+      </main>
+    </PixelConsentProvider>
   );
 }

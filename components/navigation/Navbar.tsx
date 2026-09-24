@@ -3,10 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { ApplyButton } from "@/components/qualification/ApplyButton";
 import { BookCallButton } from "@/components/ui/BookCallButton";
 import { Container } from "@/components/ui/Container";
 import { cta, navLinks, siteConfig } from "@/content/site";
-import { mvpHero } from "@/content/mvp";
+import { primaryCtaLabel } from "@/content/mvp-config";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -14,11 +15,15 @@ export function Navbar() {
   const menuRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
-  // The /mvp page is a dedicated paid-traffic landing page: keep its nav
-  // free of links back into the main site, and match its own CTA label
-  // instead of the site-wide "Book a Discovery Call".
+  // /mvp is a dedicated paid-traffic landing page: no exit links, logo isn't
+  // clickable, and the CTA opens the qualification modal instead of Calendly
+  // directly.
   const isLandingPage = pathname?.startsWith("/mvp") ?? false;
-  const ctaLabel = isLandingPage ? mvpHero.primaryCta : cta.primary;
+  // The Haraka Gari case study feeds the same funnel — its header CTA opens
+  // the same modal, but its nav/logo behave like every other page.
+  const isHarakaGari = pathname?.startsWith("/work/haraka-gari") ?? false;
+  const usesQualificationModal = isLandingPage || isHarakaGari;
+  const ctaLabel = usesQualificationModal ? primaryCtaLabel : cta.primary;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -43,6 +48,13 @@ export function Navbar() {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [menuOpen]);
 
+  const logo = (
+    <span className="flex flex-col leading-tight">
+      <span className="text-base font-semibold tracking-tight text-foreground">{siteConfig.name}</span>
+      <span className="hidden text-xs text-foreground-muted sm:block">{siteConfig.role}</span>
+    </span>
+  );
+
   return (
     <header
       className={`sticky top-0 z-50 border-b transition-colors duration-300 ${
@@ -52,14 +64,7 @@ export function Navbar() {
       }`}
     >
       <Container className="flex h-16 items-center justify-between md:h-20">
-        <Link href="/" className="flex flex-col leading-tight">
-          <span className="text-base font-semibold tracking-tight text-foreground">
-            {siteConfig.name}
-          </span>
-          <span className="hidden text-xs text-foreground-muted sm:block">
-            {siteConfig.role}
-          </span>
-        </Link>
+        {isLandingPage ? logo : <Link href="/">{logo}</Link>}
 
         {isLandingPage ? null : (
           <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
@@ -76,9 +81,15 @@ export function Navbar() {
         )}
 
         <div className="hidden md:block">
-          <BookCallButton variant="primary" className="px-5 py-2.5 text-sm">
-            {ctaLabel}
-          </BookCallButton>
+          {usesQualificationModal ? (
+            <ApplyButton location="navbar" variant="primary" className="px-5 py-2.5 text-sm">
+              {ctaLabel}
+            </ApplyButton>
+          ) : (
+            <BookCallButton variant="primary" className="px-5 py-2.5 text-sm">
+              {ctaLabel}
+            </BookCallButton>
+          )}
         </div>
 
         {isLandingPage ? (
@@ -86,9 +97,9 @@ export function Navbar() {
           // (no links, same CTA) — show the CTA directly instead of gating
           // it behind a hamburger tap.
           <div className="md:hidden">
-            <BookCallButton variant="primary" className="px-4 py-2 text-sm">
+            <ApplyButton location="navbar_mobile" variant="primary" className="px-4 py-2 text-sm">
               {ctaLabel}
-            </BookCallButton>
+            </ApplyButton>
           </div>
         ) : (
           <button
@@ -128,25 +139,34 @@ export function Navbar() {
           className="border-t border-border-subtle bg-background md:hidden"
         >
           <Container className="flex flex-col gap-1 py-6">
-            {isLandingPage
-              ? null
-              : navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setMenuOpen(false)}
-                    className="rounded-md px-2 py-3 text-base font-medium text-foreground-muted transition-colors hover:bg-surface hover:text-foreground"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-            <BookCallButton
-              variant="primary"
-              className="mt-3 w-full"
-              onClick={() => setMenuOpen(false)}
-            >
-              {ctaLabel}
-            </BookCallButton>
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className="rounded-md px-2 py-3 text-base font-medium text-foreground-muted transition-colors hover:bg-surface hover:text-foreground"
+              >
+                {link.label}
+              </Link>
+            ))}
+            {usesQualificationModal ? (
+              <ApplyButton
+                location="navbar_mobile_menu"
+                variant="primary"
+                className="mt-3 w-full"
+                onClick={() => setMenuOpen(false)}
+              >
+                {ctaLabel}
+              </ApplyButton>
+            ) : (
+              <BookCallButton
+                variant="primary"
+                className="mt-3 w-full"
+                onClick={() => setMenuOpen(false)}
+              >
+                {ctaLabel}
+              </BookCallButton>
+            )}
           </Container>
         </div>
       ) : null}

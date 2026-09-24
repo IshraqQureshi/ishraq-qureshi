@@ -1,3 +1,5 @@
+import { primaryCtaLabel } from "@/content/mvp-config";
+
 export const harakaGari = {
   slug: "haraka-gari",
   eyebrow: "AI-Accelerated Engineering",
@@ -6,6 +8,9 @@ export const harakaGari = {
   description:
     "Haraka Gari is a two-sided automobile marketplace connecting customers with vetted showrooms: browse and search vehicles, inquire directly, apply for financing, and book test drives, while showrooms manage their own inventory and admins moderate the platform. Built end-to-end — frontend, backend, database, security, and QA — as a Next.js + Supabase application, developed under an AI-agent-driven engineering process (Claude Code) that enforced its own quality gates: mandatory PR review, automated testing, and staged release checkpoints, all defined in a single project constitution.",
   stack: ["Next.js 16", "React 19", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS 4"],
+
+  resultSummary:
+    "The result: a two-sided marketplace with customer, showroom and admin roles, live in production 6 days after kickoff, with security enforced at the database level and two authorization bugs caught in review before launch.",
 
   proofMetrics: [
     { value: "6 Days", label: "MVP Build" },
@@ -162,7 +167,7 @@ export const harakaGari = {
   },
 
   outcome: {
-    headline: "Live in Production — With an Honest Account of What's Left Open",
+    headline: "What's Next for the Platform",
     description:
       "The application is live in production on Vercel, backed by a production Supabase project with 55 database migrations applied. Homepage, vehicle listings, vehicle detail, showroom directory, and admin were all smoke-tested successfully post-deploy. In the interest of accuracy: deployment happened, but the project's own formal release gate was not fully closed out at last check — authentication, the finance calculator, inquiries, and login were not yet re-verified against production, and the tracker records status as \"live, partially verified — not yet a formal release-gate pass.\" Nine items remain open, most notably: no live WhatsApp Business API integration (inquiries currently go by email), no production Google OAuth or SMTP, placeholder legal pages, and a Next.js routing quirk that returns HTTP 200 instead of a proper 404 on some routes.",
     metrics: [
@@ -204,7 +209,7 @@ export const harakaGari = {
     headline: "Let's Talk About Your MVP Timeline.",
     description:
       "Have a validated idea and a real deadline? Let's figure out what a disciplined, AI-accelerated build actually looks like for your product.",
-    primaryCta: "Get a Free 15-Minute MVP Assessment",
+    primaryCta: primaryCtaLabel,
     secondaryCta: "Back to Case Studies",
   },
 };

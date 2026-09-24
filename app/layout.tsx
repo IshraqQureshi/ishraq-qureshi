@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Footer } from "@/components/footer/Footer";
 import { Navbar } from "@/components/navigation/Navbar";
+import { QualificationModalProvider } from "@/components/qualification/QualificationModalProvider";
 import { siteConfig } from "@/content/site";
 import "./globals.css";
 
@@ -46,9 +47,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
-        <Navbar />
-        {children}
-        <Footer />
+        <QualificationModalProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </QualificationModalProvider>
         <Analytics />
         <SpeedInsights />
       </body>

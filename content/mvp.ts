@@ -1,232 +1,162 @@
+import { MVP_CONFIG, primaryCtaLabel, ctaMicrocopy } from "@/content/mvp-config";
+
+export { primaryCtaLabel, ctaMicrocopy };
+
 export const mvpHero = {
-  eyebrow: "AI Product Engineering for Founders",
+  eyebrow: "FOR FOUNDERS WITH A VALIDATED SAAS OR AI IDEA",
   headline: "Turn Your Validated SaaS or AI Idea Into a Working MVP — Without Hiring a Full-Time Engineering Team",
-  subheadline:
-    "Bring your validated product idea. In 15 minutes, we'll identify what your MVP actually needs, what can wait, and what the technical path could look like.",
-  supportingLine: "No obligation. Just a focused conversation about your product.",
-  primaryCta: "Get a Free 15-Minute MVP Assessment",
-  secondaryCta: "See How It Works",
-  trustLine: "9+ Years Building SaaS and Business Software · AI Product Engineering · Full-Stack Architecture",
-};
-
-export const mvpValidated = {
-  label: "What Does \"Validated\" Mean?",
-  paragraph:
-    "You don't need a finished product. Validation could mean you've spoken with potential customers, identified a real business problem, received meaningful interest or signups, have existing customers asking for the solution, or have another credible signal that people need what you're building.",
-  note: "Still just exploring an idea? That's okay — but your first step may be validation, not development.",
-};
-
-export const mvpCallAgenda = {
-  label: "Get a Free 15-Minute MVP Assessment",
-  intro: "During the call, we'll discuss:",
-  items: [
-    "What you're building",
-    "Who it's for",
-    "What you've already validated",
-    "What the MVP actually needs",
-    "What can be left for later",
-    "The likely technical path forward",
+  sub: `I'm Ishraq, a senior full-stack and AI product engineer with 9+ years building SaaS platforms and marketplaces. I scope, architect and build your MVP end-to-end, so you get a product real users can log into, not a demo.`,
+  facts: [
+    `Typical MVP: ${MVP_CONFIG.priceMin}–${MVP_CONFIG.priceMax}`,
+    MVP_CONFIG.typicalTimeline,
+    "You own 100% of the code",
   ],
+  photoCaption: `${MVP_CONFIG.name} · ${MVP_CONFIG.location}`,
+  trustStrip: "9+ years in production software · Next.js · Supabase/Postgres · OpenAI & Anthropic APIs · Stripe",
 };
 
-export const mvpPreCta = {
-  message: "Before you spend months hiring developers or building the wrong features, let's figure out what your MVP actually needs.",
-};
-
-export const mvpProblem = {
-  headline: "You Don't Need a Full Engineering Team to Find Out If Your Product Can Work.",
-  intro:
-    "A validated idea can still get stuck. Not because the opportunity isn't real, but because the founder doesn't yet know:",
-  points: [
-    "What actually needs to be built",
-    "What should be excluded from the MVP",
-    "Which technology decisions matter",
-    "How much development is really required",
-    "How to find and manage engineers",
-    "How to avoid wasting months building unnecessary features",
-  ],
-  reframe: "The problem isn't simply finding a developer. It's having someone who can make sound technical decisions and actually execute.",
-  closing: "That's where I come in.",
-};
-
-export type OfferStage = {
-  number: string;
-  title: string;
-  summary: string;
-};
-
-export const mvpOffer = {
-  headline: "From Validated Idea to Working MVP",
-  stages: [
-    {
-      number: "01",
-      title: "Product Clarification",
-      summary:
-        "Turn the validated idea into a focused MVP — clarifying the core user journey, defining essential functionality, removing unnecessary features, and identifying technical requirements.",
-    },
-    {
-      number: "02",
-      title: "Architecture",
-      summary:
-        "A technical foundation designed around your actual product requirements — without overbuilding the MVP.",
-    },
-    {
-      number: "03",
-      title: "MVP Development",
-      summary:
-        "Build the actual product — a working MVP your users can log into and use, with the underlying capabilities (authentication, payments, integrations, AI features) built to support the product, not to impress.",
-    },
-    {
-      number: "04",
-      title: "Launch",
-      summary:
-        "Get the MVP into a usable state — testing, production deployment, bug fixing, technical handover, and a clear roadmap for what comes next.",
-    },
-  ] satisfies OfferStage[],
-};
-
-export const mvpDifferentiation = {
-  headline: "Not Just Someone Who Writes the Code",
-  intro:
-    "A development team can build whatever is written in the requirements. The harder part is deciding what should actually be built.",
-  typical: {
-    label: "A Typical Development Engagement",
-    quote: "You provide requirements. Developers implement them.",
-  },
-  partner: {
-    label: "This Engagement",
-    quote: "We clarify what should actually be built, make the technical decisions, and then build it.",
-  },
-  coreMessage: "The goal isn't to build more software. It's to build the right MVP.",
-  areas: [
-    "Know what to build",
-    "Avoid wasted spend on unnecessary features",
-    "Skip hiring and managing an engineering team",
-    "One experienced technical partner",
-    "A working product real users can use",
-    "A foundation that can evolve after the MVP",
-  ],
-};
-
-export const mvpExperience = {
-  headline: "9+ Years Building Business Software",
-  description:
-    "Experience across SaaS platforms, marketplaces, AI-powered applications, LMS platforms, business automation, API-driven systems, and cloud deployments — evidence of the technical depth behind every MVP.",
-  areas: [
-    "SaaS Platforms",
-    "Marketplaces",
-    "AI-Powered Applications",
-    "LMS Platforms",
-    "Business Automation",
-    "API-Driven Systems",
-    "Cloud Deployments",
-  ],
-};
-
-export const mvpAi = {
-  eyebrow: "AI-Accelerated Engineering",
-  headline: "AI Helps Me Move Faster. Experience Keeps the Product Grounded.",
-  description:
-    "AI-assisted development accelerates prototyping, code generation, refactoring, documentation, testing, and day-to-day workflows.",
-  caveat: "AI doesn't replace architecture, engineering judgment, product decisions, or testing.",
-  panels: {
-    speed: {
-      label: "AI Speed",
-      items: ["Faster prototyping", "Code generation", "Refactoring & documentation", "Testing workflows"],
-    },
-    judgment: {
-      label: "Engineering Judgment",
-      items: ["Architecture decisions", "Product trade-offs", "Security & scalability", "Real-world testing"],
-    },
-  },
-};
-
-export const mvpFit = {
-  headline: "This Is a Good Fit If...",
+export const mvpFitCheck = {
+  heading: "This Is for You If…",
   good: {
-    label: "Good Fit",
+    label: "Good fit",
     items: [
-      "You have a SaaS or AI product idea",
-      "You've identified a real problem",
-      "You've already spoken to potential users/customers, or have another meaningful validation signal",
-      "You need technical execution",
-      "You don't want to build and manage a full engineering team",
-      "You're ready to invest in turning the idea into a real product",
+      "You've validated demand: paying customers, pre-orders/LOIs, a real waitlist, 10+ customer interviews, or an existing business process you own",
+      `You have a realistic budget in the ${MVP_CONFIG.priceMin}–${MVP_CONFIG.priceMax} range, or can get there in the next 3 months`,
+      "You want one senior engineer who makes technical decisions, not a team you have to manage",
+      "You want to launch in weeks, not quarters",
     ],
   },
   notFit: {
-    label: "Probably Not a Fit If...",
+    label: "Not a fit",
     items: [
-      "You only have a vague idea with no validation",
+      "You only have an idea and haven't talked to potential customers yet",
       "You're looking for the cheapest developer available",
-      "You only need a simple marketing website",
-      "You expect unlimited features without a defined scope",
-      "You're not currently ready to invest in development",
+      "You need a marketing website, not a product",
+      "You want unlimited features without a defined scope",
     ],
   },
 };
 
-export const mvpCallSteps = {
-  headline: "Start With 15 Minutes",
-  note: "This call is not a hard sales pitch.",
+export const mvpProblem = {
+  heading: "Validated Ideas Still Die in the Build",
+  body: "Not because the market isn't there, but because founders build the wrong thing, hire the wrong team, or spend six months on features nobody asked for. Before a single line of code, someone has to decide what the MVP actually is and how it should be built. That's the job I do first.",
+};
+
+export const mvpAiObjection = {
+  heading: `"Why Not Just Build It With Lovable, Bolt or Cursor?"`,
+  bodyOne:
+    "You can, for a demo. AI tools are excellent at producing screens that look finished. They are much worse at the parts that decide whether real users can trust your product: authentication that doesn't leak data, permissions that hold up, payments that reconcile, and a data model that survives your first thousand users.",
+  bodyTwo:
+    "I use AI agents every day. That's how I build fast. But every change goes through tests and review. On my last marketplace build, review caught an authorization bug that would have let users access data they shouldn't have, before it ever reached production. AI gives me speed; 9 years of engineering judgment decides what ships.",
+  comparison: {
+    aiAlone: {
+      label: "AI tools on their own",
+      items: ["Fast demo", "Security and permissions left to chance", "Hard to extend past v1", "You debug it yourself"],
+    },
+    aiAccelerated: {
+      label: "AI-accelerated engineering",
+      items: [
+        "Fast and production-grade",
+        "Auth and permissions enforced at the database",
+        "Architecture built to evolve",
+        "A senior engineer accountable for it",
+      ],
+    },
+  },
+};
+
+export const mvpHowItWorks = {
+  heading: "How We Work Together",
   steps: [
     {
       number: "01",
-      title: "Tell Me About the Product",
-      description: "Explain what you're building and who it's for.",
+      title: "Free 15-Minute Scoping Call",
+      description:
+        "We talk through what you're building, who it's for, and what you've validated. You leave knowing whether an MVP makes sense now and roughly what it involves.",
     },
     {
       number: "02",
-      title: "We Identify the MVP",
-      description: "Discuss what needs to be built first and what can wait.",
+      title: `Discovery & Architecture — ${MVP_CONFIG.discoveryPrice}, ${MVP_CONFIG.discoveryDuration}`,
+      description:
+        `I turn your idea into a scoped MVP: core user journeys, a feature list with clear in/out decisions, the technical architecture, and a fixed quote and timeline.${
+          MVP_CONFIG.discoveryCreditedToBuild ? " The full fee is credited toward your build." : ""
+        }`,
     },
     {
       number: "03",
-      title: "Decide the Next Step",
-      description: "If there's a genuine fit, I'll explain the technical path forward.",
+      title: `MVP Build — ${MVP_CONFIG.priceMin}–${MVP_CONFIG.priceMax}, ${MVP_CONFIG.typicalTimeline}`,
+      description:
+        "Fixed-price milestones. Your code lives in your GitHub from day one, with a staging link you can click through and a short demo every week.",
+    },
+    {
+      number: "04",
+      title: "Launch & Beyond",
+      description:
+        "Production deployment, testing, documentation and handover. After launch, you can keep me on as your ongoing technical partner, or take the codebase to your own team with zero lock-in.",
     },
   ],
+};
+
+export const mvpWhatYouGet = {
+  heading: "What's Included",
+  items: [
+    "100% code and IP ownership",
+    "Repo in your GitHub from day one",
+    "Weekly demo and progress update",
+    "Staging environment you can test anytime",
+    "Documentation and technical handover",
+    "A roadmap for what comes after the MVP",
+  ],
+};
+
+export const mvpAbout = {
+  heading: "Who You'll Be Working With",
+  body: "I'm Ishraq Qureshi, an AI product engineer and SaaS architect. For 9+ years I've built SaaS platforms, marketplaces, LMS products, AI-powered applications and business automation systems. You work directly with me, not an account manager and not a rotating team.",
+  locationLine: `Based in ${MVP_CONFIG.location} · ${MVP_CONFIG.overlapLine}`,
 };
 
 export const mvpFaq = [
   {
-    question: "Do I need a fully documented product?",
-    answer:
-      "No. You should have a reasonably validated idea, but the product can still be refined together.",
-  },
-  {
-    question: "Do you only work on AI products?",
-    answer:
-      "No. SaaS and other software products are also supported. AI is used where it provides a genuine product advantage.",
-  },
-  {
-    question: "Can you work with an existing team?",
-    answer: "Yes. The engagement can be structured around an existing technical team when appropriate.",
-  },
-  {
-    question: "Do you handle architecture as well as development?",
-    answer: "Yes. Architecture and technical decision-making are part of the engagement.",
-  },
-  {
-    question: "How long does an MVP take?",
-    answer:
-      "It depends on scope, integrations, complexity, and how ready the requirements are — there's no single universal timeline.",
-  },
-  {
     question: "How much does an MVP cost?",
-    answer:
-      "Every MVP is scoped differently. After understanding the product and required functionality, I can recommend the appropriate engagement and provide a clear estimate.",
+    answer: `Most MVPs I build land between ${MVP_CONFIG.priceMin} and ${MVP_CONFIG.priceMax}. Discovery & Architecture is ${MVP_CONFIG.discoveryPrice}, and you get a fixed quote at the end of it, before committing to the build.`,
   },
   {
-    question: "Do you work with founders outside your country?",
-    answer: "Yes. Remote collaboration is supported.",
+    question: "How long does it take?",
+    answer: `Typically ${MVP_CONFIG.typicalTimeline}. Tight scopes can be faster; complex integrations take longer. You'll get a specific timeline after Discovery.`,
+  },
+  {
+    question: "I'm not technical. Is that a problem?",
+    answer:
+      "No. Most of my clients aren't. I translate between product and engineering, make the technical decisions, and explain the trade-offs in plain language.",
+  },
+  {
+    question: "Where are you based, and how does working remotely work?",
+    answer: `I'm based in ${MVP_CONFIG.location}, with ${MVP_CONFIG.overlapLine}. We communicate async on Slack or email, plus a live check-in each week.`,
+  },
+  {
+    question: "Who owns the code?",
+    answer: "You do, completely. It lives in your GitHub from day one.",
+  },
+  {
+    question: "What if my scope changes mid-build?",
+    answer: "Changes are logged, estimated, and approved by you before any work starts on them. No surprise invoices.",
+  },
+  {
+    question: "Can you work with my existing team?",
+    answer: "Yes. I can lead the build, work alongside your developers, or set up the architecture for them to build on.",
+  },
+  {
+    question: "What happens after launch?",
+    answer:
+      "You can keep me on as an ongoing technical partner for new features and scaling, or hand the codebase to your own team with full documentation.",
+  },
+  {
+    question: "Do you only build AI products?",
+    answer: "No. I build SaaS and marketplace products too. AI is added only where it gives the product a real advantage.",
   },
 ];
 
 export const mvpFinalCta = {
-  eyebrow: "Ready When You Are",
-  headline: "You Have the Validated Idea. Let's Figure Out What It Takes to Build It.",
-  description: "Get a free 15-minute MVP assessment and leave with a clearer understanding of your next technical step.",
-  primaryCta: "Get a Free 15-Minute MVP Assessment",
-  supportingLine: "No obligation. Just a focused conversation about your product.",
+  heading: "Have a Validated Idea? Let's See If It's Ready to Build.",
+  sub: "Apply in 2 minutes. If it's a fit, you'll book a 15-minute call right away. If it's not, I'll tell you honestly what to do first.",
 };

@@ -1,3 +1,4 @@
+import { ApplyButton } from "@/components/qualification/ApplyButton";
 import { BookCallButton } from "@/components/ui/BookCallButton";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -8,6 +9,8 @@ type CaseStudyCTAProps = {
   description: string;
   primaryCta: string;
   secondaryCta: string;
+  /** When true, the primary CTA opens the qualification modal instead of booking Calendly directly. */
+  useQualificationModal?: boolean;
 };
 
 export function CaseStudyCTA({
@@ -16,6 +19,7 @@ export function CaseStudyCTA({
   description,
   primaryCta,
   secondaryCta,
+  useQualificationModal = false,
 }: CaseStudyCTAProps) {
   return (
     <section className="glow-accent border-t border-border-subtle py-24 md:py-32">
@@ -28,9 +32,15 @@ export function CaseStudyCTA({
         </h2>
         <p className="max-w-xl text-lg text-foreground-muted">{description}</p>
         <div className="mt-2 flex flex-col gap-3 sm:flex-row">
-          <BookCallButton variant="primary" className="px-8 py-4 text-base">
-            {primaryCta}
-          </BookCallButton>
+          {useQualificationModal ? (
+            <ApplyButton location="haraka_gari_cta" variant="primary" className="px-8 py-4 text-base">
+              {primaryCta}
+            </ApplyButton>
+          ) : (
+            <BookCallButton variant="primary" className="px-8 py-4 text-base">
+              {primaryCta}
+            </BookCallButton>
+          )}
           <Button href="/#work" variant="secondary">
             {secondaryCta}
           </Button>

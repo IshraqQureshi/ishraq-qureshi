@@ -66,6 +66,14 @@ export default function HarakaGariPage() {
       <JsonLd data={breadcrumbSchema} />
       <CaseStudyHero project={project} />
 
+      <section className="py-10">
+        <Container>
+          <p className="max-w-3xl rounded-2xl border border-accent-border bg-accent-muted/30 p-6 text-lg leading-relaxed text-foreground md:text-xl">
+            {project.resultSummary}
+          </p>
+        </Container>
+      </section>
+
       <section className="py-24 md:py-32">
         <Container className="flex flex-col gap-10">
           <SectionHeading title="Project Overview" />
@@ -119,6 +127,13 @@ export default function HarakaGariPage() {
         </Container>
       </section>
 
+      <section className="border-y border-border-subtle bg-surface/30 py-24 md:py-32">
+        <Container className="flex flex-col gap-14">
+          <SectionHeading title={project.lessons.headline} />
+          <CardGrid cards={project.lessons.cards} />
+        </Container>
+      </section>
+
       <section className="py-24 md:py-32">
         <Container>
           <OutcomeSection
@@ -129,19 +144,13 @@ export default function HarakaGariPage() {
         </Container>
       </section>
 
-      <section className="border-y border-border-subtle bg-surface/30 py-24 md:py-32">
-        <Container className="flex flex-col gap-14">
-          <SectionHeading title={project.lessons.headline} />
-          <CardGrid cards={project.lessons.cards} />
-        </Container>
-      </section>
-
       <CaseStudyCTA
         eyebrow={project.cta.eyebrow}
         headline={project.cta.headline}
         description={project.cta.description}
         primaryCta={project.cta.primaryCta}
         secondaryCta={project.cta.secondaryCta}
+        useQualificationModal
       />
     </main>
   );
