@@ -16,6 +16,6 @@ export const automobileMarketplace = {
       { value: "630/630", label: "Automated tests passing" },
     ],
   },
-  disclaimer: "This was a specific project with a specific scope — not a promise that every MVP takes six days.",
+  disclaimer: "A specific project with a specific scope — not a promise that every MVP takes six days.",
   caseStudyHref: "/work/haraka-gari",
 };

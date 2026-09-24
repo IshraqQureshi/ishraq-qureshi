@@ -10,17 +10,10 @@ export const mvpHero = {
 };
 
 export const mvpValidated = {
-  label: "What Counts as Validated?",
-  intro: "You don't need a finished product. Your idea may be validated if you've:",
-  signals: [
-    "Spoken with potential customers",
-    "Identified a real business problem",
-    "Received meaningful interest or signups",
-    "Have existing customers asking for the solution",
-    "Have an existing business process you know needs a better software solution",
-    "Have another credible signal that people actually need what you're building",
-  ],
-  note: "If you're still at the \"I have an idea\" stage, that's okay too — but the first step may be product validation rather than development.",
+  label: "What Does \"Validated\" Mean?",
+  paragraph:
+    "You don't need a finished product. Validation could mean you've spoken with potential customers, identified a real business problem, received meaningful interest or signups, have existing customers asking for the solution, or have another credible signal that people need what you're building.",
+  note: "Still just exploring an idea? That's okay — but your first step may be validation, not development.",
 };
 
 export const mvpCallAgenda = {
