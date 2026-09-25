@@ -43,7 +43,7 @@ export function AboutSection() {
 
       <div className="relative mx-auto mt-10 aspect-4/5 w-full max-w-150 lg:absolute lg:top-0 lg:right-[300px] lg:mx-0 lg:mt-0 lg:w-150">
         <Image
-          src="/ishraq/profile.png"
+          src="/ishraq/profile.jpg"
           alt="Ishraq Qureshi"
           fill
           sizes="(min-width: 1024px) 600px, 100vw"
