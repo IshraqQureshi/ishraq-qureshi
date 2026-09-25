@@ -3,19 +3,19 @@ import { MVP_CONFIG, primaryCtaLabel, ctaMicrocopy } from "@/content/mvp-config"
 export { primaryCtaLabel, ctaMicrocopy };
 
 export const mvpHero = {
-  eyebrow: "FOR FOUNDERS WITH A VALIDATED SAAS OR AI IDEA",
+  eyebrow: "For founders with a validated SaaS or AI idea",
   headline: "Turn Your Validated SaaS or AI Idea Into a Working MVP — Without Hiring a Full-Time Engineering Team",
-  // Mobile-only variant so the price pills + CTA fit above the fold on a
-  // 375×667 viewport — see components/mvp/MvpHero.tsx.
-  headlineShort: "Turn Your Validated SaaS or AI Idea Into a Working MVP",
+  accentWords: "Working MVP",
   sub: `I'm Ishraq, a senior full-stack and AI product engineer with 9+ years building SaaS platforms and marketplaces. I scope, architect and build your MVP end-to-end, so you get a product real users can log into, not a demo.`,
+  subEmphasis: "9+ years",
   facts: [
-    `Typical MVP: ${MVP_CONFIG.priceMin}–${MVP_CONFIG.priceMax}`,
-    MVP_CONFIG.typicalTimeline,
-    "You own 100% of the code",
+    { label: "Typical MVP", value: `${MVP_CONFIG.priceMin}–${MVP_CONFIG.priceMax}` },
+    { label: "Timeline", value: MVP_CONFIG.typicalTimeline },
+    { label: "Ownership", value: "100% of the code" },
   ],
-  photoCaption: `${MVP_CONFIG.name} · ${MVP_CONFIG.location}`,
-  trustStrip: "9+ years in production software · Next.js · Supabase/Postgres · OpenAI & Anthropic APIs · Stripe",
+  locationTag: MVP_CONFIG.location.replace(" (", " · ").replace(")", ""),
+  photoAlt:
+    "Ishraq Qureshi seated at his desk with two laptops, a dashboard on the monitor and the night city behind him",
 };
 
 export const mvpFitCheck = {
