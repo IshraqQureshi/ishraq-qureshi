@@ -1,5 +1,7 @@
 import { ImageResponse } from "next/og";
 
+export const alt =
+  "Turn Your Validated SaaS or AI Idea Into a Working MVP — Without Hiring a Full-Time Engineering Team";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
