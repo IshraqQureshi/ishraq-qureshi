@@ -48,6 +48,11 @@ export function AboutSection() {
           fill
           sizes="(min-width: 1024px) 600px, 100vw"
           className="object-contain object-bottom"
+          style={{
+            WebkitMaskImage:
+              "radial-gradient(ellipse 70% 75% at 50% 45%, #000 30%, transparent 100%)",
+            maskImage: "radial-gradient(ellipse 70% 75% at 50% 45%, #000 30%, transparent 100%)",
+          }}
         />
       </div>
     </section>
