@@ -41,7 +41,7 @@ export function AboutSection() {
         </div>
       </Container>
 
-      <div className="relative mx-auto mt-10 aspect-4/5 w-full max-w-150 lg:absolute lg:bottom-0 lg:right-0 lg:mx-0 lg:mt-0 lg:w-150">
+      <div className="relative mx-auto mt-10 aspect-4/5 w-full max-w-150 lg:absolute lg:top-32.5 lg:-left-62.5 lg:mx-0 lg:mt-0 lg:w-150">
         <Image
           src="/ishraq/profile.png"
           alt="Ishraq Qureshi"
