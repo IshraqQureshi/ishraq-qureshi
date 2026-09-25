@@ -21,7 +21,7 @@ export const MVP_CONFIG = {
   role: "AI Product Engineer & SaaS Architect",
   location: "Karachi, Pakistan (UTC+5)",
   overlapLine: "5+ hours overlap with US Eastern, full overlap with UK/EU",
-  photoPath: "/ishraq/profile.jpg",
+  photoPath: "/ishraq/profile.png",
   linkedinUrl: "https://www.linkedin.com/in/ishraq-qureshi",
   contactEmail: "hello@ishraqqureshi.com",
 

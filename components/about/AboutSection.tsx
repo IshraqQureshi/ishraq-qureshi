@@ -43,7 +43,7 @@ export function AboutSection() {
         <div>
           <div className="relative aspect-4/5 w-full max-w-sm overflow-hidden rounded-2xl border border-border-subtle bg-linear-to-br from-surface to-surface-elevated lg:mx-auto">
             <Image
-              src="/ishraq/profile.jpg"
+              src="/ishraq/profile.png"
               alt="Ishraq Qureshi"
               fill
               sizes="(min-width: 1024px) 384px, 100vw"
