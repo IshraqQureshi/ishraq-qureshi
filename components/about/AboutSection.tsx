@@ -10,7 +10,7 @@ const credentials = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="relative overflow-hidden py-14 md:py-20">
+    <section id="about" className="relative overflow-hidden py-14 md:py-[145px]">
       <Container>
         <div className="flex flex-col gap-6 lg:max-w-lg">
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-accent-hover">
@@ -41,7 +41,7 @@ export function AboutSection() {
         </div>
       </Container>
 
-      <div className="relative mx-auto mt-10 aspect-4/5 w-full max-w-150 lg:absolute lg:top-32.5 lg:-left-62.5 lg:mx-0 lg:mt-0 lg:w-150">
+      <div className="relative mx-auto mt-10 aspect-4/5 w-full max-w-150 lg:absolute lg:top-0 lg:right-[300px] lg:mx-0 lg:mt-0 lg:w-150">
         <Image
           src="/ishraq/profile.png"
           alt="Ishraq Qureshi"
