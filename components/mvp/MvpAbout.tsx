@@ -5,9 +5,9 @@ import { mvpAbout } from "@/content/mvp";
 
 export function MvpAbout() {
   return (
-    <section className="py-16 md:py-24">
-      <Container className="grid gap-14 lg:grid-cols-[2fr_3fr] lg:items-end lg:gap-20">
-        <div className="flex flex-col gap-6">
+    <section className="relative overflow-hidden py-14 md:py-20">
+      <Container>
+        <div className="flex flex-col gap-6 lg:max-w-lg">
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-accent-hover">About</span>
           <h2 className="text-balance text-[2.1rem] font-semibold leading-[1.15] tracking-tight text-foreground md:text-[2.5rem]">
             {mvpAbout.heading}
@@ -21,17 +21,17 @@ export function MvpAbout() {
             Connect on LinkedIn
           </a>
         </div>
-
-        <div className="relative aspect-4/5 w-full max-w-150 lg:ml-auto">
-          <Image
-            src={MVP_CONFIG.photoPath}
-            alt={MVP_CONFIG.name}
-            fill
-            sizes="(min-width: 1024px) 600px, 100vw"
-            className="object-contain object-bottom"
-          />
-        </div>
       </Container>
+
+      <div className="relative mx-auto mt-10 aspect-4/5 w-full max-w-150 lg:absolute lg:bottom-0 lg:right-0 lg:mx-0 lg:mt-0 lg:w-150">
+        <Image
+          src={MVP_CONFIG.photoPath}
+          alt={MVP_CONFIG.name}
+          fill
+          sizes="(min-width: 1024px) 600px, 100vw"
+          className="object-contain object-bottom"
+        />
+      </div>
     </section>
   );
 }
