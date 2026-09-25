@@ -11,7 +11,7 @@ const credentials = [
 export function AboutSection() {
   return (
     <section id="about" className="py-24 md:py-32">
-      <Container className="grid gap-14 lg:grid-cols-[3fr_2fr] lg:items-center lg:gap-20">
+      <Container className="grid gap-14 lg:grid-cols-[2fr_3fr] lg:items-end lg:gap-20">
         <div className="flex flex-col gap-6">
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-accent-hover">
             About
@@ -40,16 +40,14 @@ export function AboutSection() {
           </ul>
         </div>
 
-        <div>
-          <div className="relative aspect-4/5 w-full max-w-sm overflow-hidden rounded-2xl border border-border-subtle bg-linear-to-br from-surface to-surface-elevated lg:mx-auto">
-            <Image
-              src="/ishraq/profile.png"
-              alt="Ishraq Qureshi"
-              fill
-              sizes="(min-width: 1024px) 384px, 100vw"
-              className="object-cover"
-            />
-          </div>
+        <div className="relative aspect-4/5 w-full max-w-150 lg:ml-auto">
+          <Image
+            src="/ishraq/profile.png"
+            alt="Ishraq Qureshi"
+            fill
+            sizes="(min-width: 1024px) 600px, 100vw"
+            className="object-contain object-bottom"
+          />
         </div>
       </Container>
     </section>
