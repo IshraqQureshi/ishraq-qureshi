@@ -10,7 +10,7 @@ const credentials = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="relative overflow-hidden pt-14 pb-0 md:py-[145px]">
+    <section id="about" className="relative overflow-hidden py-0 md:py-[145px]">
       <Container>
         <div className="flex flex-col gap-6 lg:max-w-lg">
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-accent-hover">
